@@ -1,0 +1,31 @@
+<h1>Manage Products</h1>
+<a href="/products/add" class="btn btn-primary mb-3">Add New Product</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Size</th>
+            <th>Stock</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each products}}
+        <tr>
+            <td>{{this.name}}</td>
+            <td>{{this.category}}</td>
+            <td>{{this.size}}</td>
+            <td>{{this.stock}}</td>
+            <td>{{this.price}}</td>
+            <td>
+                <a href="/products/edit/{{this._id}}" class="btn btn-warning btn-sm">Edit</a>
+                <form action="/products/delete/{{this._id}}" method="POST" style="display:inline;">
+                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
